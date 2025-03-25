@@ -33,3 +33,8 @@ console.log([first, second])
 let [first, second] = numbers;  // Destructuring the first two elements
 
 console.log([first, second]);  // Output: [10, 20]*/
+function numbers(...numbers)
+{
+    console.log(numbers);
+}
+numbers(1,2,3,4,5)
