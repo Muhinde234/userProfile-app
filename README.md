@@ -1,3 +1,3 @@
 Collaborators:
-MUHINDE Igirimpuhwe Dositha
+MUHINDE IGIRIMPUHWE Dositha
 ICYEZA GATORE IRAIS Delices
