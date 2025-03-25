@@ -15,14 +15,15 @@ const calculateBirthYear=() =>{
 calculateBirthYear()
 
 let personInfo={
-    name:"dosta",
+    names:"dosta",
     age:20,
     country:"Rwanda",
    
 }
-console.log(personInfo.age);
-console.log(personInfo.name);
-console.log(personInfo.country);
+const{names,age,country} = personInfo;
+console.log(age);
+console.log(names);
+console.log(country);
 //Array destructuring//
 let colors= ["green","red","white"];
 let [first, second] = colors;
