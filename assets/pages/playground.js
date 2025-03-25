@@ -38,3 +38,8 @@ function numbers(...numbers)
     console.log(numbers);
 }
 numbers(1,2,3,4,5)
+
+let arrayOne = [1,2,3,4,5];
+let arrayTwo =[2,4,5,6,7];
+let combinedArray= [...arrayOne, ...arrayTwo];
+console.log(combinedArray);
