@@ -1,70 +1,114 @@
-//step 2 declaring variables 
-let username= "Jane Doe";
-const birthYear= 1980;
-const currentYear= 2025;
-// step 3 using template literals
-function calculateAge(){
-let age = currentYear-birthYear;
-console.log(`Hello your name is ${username} and your age is${age}`); 
+// Step 2: Declaring variables
+let username = "delice";
+const birthYear = 1980;
+const currentYear = 2025;
+
+// Step 3: Using template literals
+function calculateAge() {
+    let age = currentYear - birthYear;
+    console.log(`Hello your name is ${username} and your age is ${age}`);
+ 
 }
-//step 4 arrow function
+
+// Step 4: Arrow function
 calculateAge();
-const calculateBirthYear=() =>{
-    let Age= 56;
+
+const calculateBirthYear = () => {
+    let Age = 56;
     let bornYear = currentYear - Age;
     console.log(`You were born in ${bornYear}`);
+    
 }
-calculateBirthYear()
+calculateBirthYear();
 
-//step 5 destructuring
-//object destructuring 
-let personInfo={
-    names:"dosta",
-    age:20,
-    country:"Rwanda",
-   
-}
-const{names,age,country} = personInfo;
-console.log(age);
-console.log(names);
-console.log(country);
-//Array destructuring//
-let colors= ["green","red","white"];
+// Step 5: Destructuring
+// Object destructuring
+let personInfo = {
+    names: "dosta",
+    age: 20,
+    country: "Rwanda",
+};
+
+const { names: personName, age: personAge, country: personCountry } = personInfo;
+
+
+console.log(personAge);
+console.log(personName);
+console.log(personCountry);
+
+// Array destructuring
+let colors = ["green", "red", "white"];
 let [first, second] = colors;
-console.log([first, second])
+console.log([first, second]);
 
-// step 6 rest and spread operators
-//rest operator 
-function numbers(...numbers)
-{
-    console.log(numbers);
+// Step 6: Rest and spread operators
+// Rest operator
+function numbers(...nums) {
+    console.log(nums);
 }
-numbers(1,2,3,4,5)
-//spread operator
-let arrayOne = [1,2,3,4,5];
-let arrayTwo =[2,4,5,6,7];
-let combinedArray= [...arrayOne, ...arrayTwo];
+numbers(1, 2, 3, 4, 5);
+
+// Spread operator
+let arrayOne = [1, 2, 3, 4, 5];
+let arrayTwo = [2, 4, 5, 6, 7];
+let combinedArray = [...arrayOne, ...arrayTwo];
 console.log(combinedArray);
 
-//step 7 use promises
-
-function fetchData(url) {
+// Step 7: Updated promise with getUsers()
+function getUsers() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            fetch('https://jsonplaceholder.typicode.com/todos/1') 
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json(); 
-                })
-                .then(data => resolve(data)) 
-                .catch(error => reject("Data fetch failed: " + error.message)); 
+            const success = Math.random() > 0.2; // 80% chance of success
+
+            if (success) {
+                resolve([
+                    { username: 'dosta', email: 'dosta@test.com' },
+                    { username: 'delice', email: 'delice@test.com' },
+                ]);
+            } else {
+                reject('Error: Failed to fetch users');
+            }
         }, 1000);
     });
 }
 
+function onFulfilled(users) {
+    console.log('Users:', users);
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const dataDisplay = document.getElementById('dataDisplay');
+    
+    loadingSpinner.style.display = 'none';
+    dataDisplay.style.display = 'block';
+    dataDisplay.innerHTML = `
+        <h3>Fetched Users:</h3>
+        <div class="user-list">
+            ${users.map(user => `
+                <div class="user-card">
+                    <p><strong>Username:</strong> ${user.username}</p>
+                    <p><strong>Email:</strong> ${user.email}</p>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
 
-fetchData('https://jsonplaceholder.typicode.com/todos/1')
-    .then(data => console.log("Data fetched successfully:", data))
-    .catch(error => console.error(error));
+function onRejected(error) {
+    console.error('Error:', error);
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const dataDisplay = document.getElementById('dataDisplay');
+    
+    loadingSpinner.style.display = 'none';
+    dataDisplay.style.display = 'block';
+    dataDisplay.innerHTML = `<p class="error">${error}</p>`;
+}
+
+document.getElementById('fetchDataBtn').addEventListener('click', () => {
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const dataDisplay = document.getElementById('dataDisplay');
+    
+    loadingSpinner.style.display = 'block';
+    dataDisplay.style.display = 'none';
+    
+    const promise = getUsers();
+    promise.then(onFulfilled).catch(onRejected);
+})

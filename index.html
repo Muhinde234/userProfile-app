@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Visualization</title>
+    <link rel="stylesheet" href="./assets/pages/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>User Profile Visualization</h1>
+            <p>Graphical user interface</p>
+        </header>
+        
+        <div class="profile-section">
+            <div class="card">
+                <h2>Basic Information</h2>
+                <div class="info-item">
+                    <span class="info-label">Username</span>
+                    <div class="info-value" id="username">Delice</div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Birth Year</span>
+                    <div class="info-value" id="birthYear">1980</div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Current Year</span>
+                    <div class="info-value" id="currentYear">2025</div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Calculated Age</span>
+                    <div class="info-value" id="calculatedAge">45</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Person Information</h2>
+                <div class="info-item">
+                    <span class="info-label">Name</span>
+                    <div class="info-value" id="personName">dosta</div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Age</span>
+                    <div class="info-value" id="personAge">20</div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Country</span>
+                    <div class="info-value" id="personCountry">Rwanda</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Color Preferences</h2>
+                <div class="info-item">
+                    <span class="info-label">Favorite Colors</span>
+                    <div class="color-box">
+                        <div class="color" style="background: green;">Green</div>
+                        <div class="color" style="background: red;">Red</div>
+                        <div class="color" style="background: white; color: black; border: 1px solid #ccc;">White</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Selected Colors</span>
+                    <div class="color-box">
+                        <div class="color" style="background: green;">Green</div>
+                        <div class="color" style="background: red;">Red</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="profile-section">
+            <div class="card">
+                <h2>Number Operations</h2>
+                <div class="info-item">
+                    <span class="info-label">Numbers (Rest Operator)</span>
+                    <div class="array-visual">
+                        <div class="array-item">1</div>
+                        <div class="array-item">2</div>
+                        <div class="array-item">3</div>
+                        <div class="array-item">4</div>
+                        <div class="array-item">5</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Combined Arrays (Spread Operator)</span>
+                    <div class="array-visual">
+                        <div class="array-item">1</div>
+                        <div class="array-item">2</div>
+                        <div class="array-item">3</div>
+                        <div class="array-item">4</div>
+                        <div class="array-item">5</div>
+                        <div class="array-item">2</div>
+                        <div class="array-item">4</div>
+                        <div class="array-item">5</div>
+                        <div class="array-item">6</div>
+                        <div class="array-item">7</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Age Calculator</h2>
+                <div class="info-item">
+                    <span class="info-label">Calculate Birth Year from Age</span>
+                    <div class="info-value" id="calculatedBirthYear">1969</div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Sample Output</span>
+                    <div class="info-value">Hello your name is delice and your age is 45</div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Sample Output</span>
+                    <div class="info-value">You were born in 1969</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="promise-section">
+            <h2>User Data Fetching</h2>
+            <p>Click the button below to fetch random user data (80% success rate)</p>
+            <button class="fetch-btn" id="fetchDataBtn">Fetch Users</button>
+            <div class="loading" id="loadingSpinner"></div>
+            <div class="data-display" id="dataDisplay"></div>
+        </div>
+        
+        <footer>
+            <p>User Profile Visualization App made by Delice && Dositha </p>
+        </footer>
+    </div>
+
+    <script src="./assets/pages/playground.js"></script>
+</body>
+</html>
