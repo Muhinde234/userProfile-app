@@ -54,7 +54,7 @@ let arrayTwo = [2, 4, 5, 6, 7];
 let combinedArray = [...arrayOne, ...arrayTwo];
 console.log(combinedArray);
 
-// Step 7: Updated promise with getUsers()
+// Step 7: promise
 function getUsers() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
